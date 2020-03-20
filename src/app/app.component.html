@@ -1,25 +1,5 @@
-<mat-sidenav-container>
-  <mat-sidenav mode="side" class="text-center" opened>
-    <img id="logo" src="../assets/img/logo.svg" class="mt-4" alt="logo" routerLink="">
-    <h3 class="mt-4">{{ 'app-name' | translate }}</h3>
-    <hr style="height: 2px" class="mx-4 bg-sidebar-item">
+<router-outlet></router-outlet>
 
-    <mat-nav-list class="mx-4">
-      <a mat-list-item class="color-sidebar-item" href="#" routerLink="home">
-        <mat-icon class="mr-2 color-sidebar-item">home</mat-icon> {{'menu.home' | translate}}
-      </a>
-      <a mat-list-item class="color-sidebar-item" href="#" routerLink="settings">
-        <mat-icon class="mr-2 color-sidebar-item">settings</mat-icon> {{'menu.settings' | translate}}
-      </a>
-      <hr class="mt-5 bg-sidebar-item">
-      <a mat-list-item class="color-sidebar-item" href="#">
-        <mat-icon class="mr-2 color-sidebar-item">help</mat-icon> {{'menu.help' | translate}}
-      </a>
-    </mat-nav-list>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-
-</mat-sidenav-container>
+<footer id="footer" class="footer fixed-bottom">
+    <div id="footer-text" class="text-center">Copyright © {{ 'app-name' | translate }} 2020</div>
+</footer>

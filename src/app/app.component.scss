@@ -1,25 +1,9 @@
 @import "~src/custom-theme";
 
-$item-color: #FFFFFF;
-
-#logo {
-  width: 65%;
+#footer {
+  background: rgba(150, 150, 150, 0.4);
 }
 
-mat-sidenav-container {
-  height: 100%;
-}
-
-mat-sidenav {
-  width: 18rem;
-  background: $primary !important;
-  color: $item-color !important;
-}
-
-.bg-sidebar-item {
-  background: $item-color !important;
-}
-
-.color-sidebar-item {
-  color: $item-color !important;
+#footer-text {
+  color: $primary;
 }

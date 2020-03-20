@@ -1,0 +1,34 @@
+<div id="background" class="h-100 d-flex align-items-center justify-content-center">
+
+    <div class="h-50 mx-2 align-middle col-xl-3 col-lg-5 col-sm-8">
+        <mat-card>
+            <div class="text-center">
+                <h5>{{'app-name' | translate}}</h5>
+            </div>
+            <hr>
+
+            <div class="mt-4" [formGroup]="form">
+                <div class="text-center">
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput formControlName="email">
+                    </mat-form-field>
+                </div>
+                <div class="mt-1 text-center">
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput formControlName="password">
+                    </mat-form-field>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <button mat-raised-button color="primary" class="col-8" (click)="login()">Login</button>
+                </div>
+
+                <span *ngIf="failedAuthMessage" class="text-center mat-error mt-2">Wrong email or password!</span>
+            </div>
+
+
+        </mat-card>
+
+    </div>
+</div>
