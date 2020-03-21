@@ -15,11 +15,15 @@
     "done": "Done",
     "whats-your-name": "Whats your name?",
     "email-validation": "Incorrect email!",
+    "password-validation": "Password must contain at least 6 signs, upper/lowercase and number",
     "empty-field": "You must fill this field",
     "phone": "Phone Number",
     "team-name": "Team name",
     "team-email": "Team leader email",
     "team-phone": "Team leader's phone number",
-    "city": "City"
+    "city": "City",
+    "start-help-description": "Now you are ready to help. Find your teammates, create tasks and begin local kindness!",
+    "start-help": "Let's start to help!",
+    "sign-up-error": "Something went wrong, try you internet connection"
   }
 }

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {TranslateService} from '@ngx-translate/core';
+import {Credentials, FirebaseAuthService} from '../firebase-auth.service';
+import {Team} from '../team.model';
+import {User} from '../user.model';
 
 @Component({
     selector: 'app-signup',
@@ -11,8 +13,9 @@ export class SignupComponent implements OnInit {
     signUpDataForm: FormGroup;
     userDataForm: FormGroup;
     teamDataForm: FormGroup;
+    signUpError: string;
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder, private firebase: FirebaseAuthService) {
     }
 
     ngOnInit() {
@@ -22,7 +25,7 @@ export class SignupComponent implements OnInit {
     initForms() {
         this.signUpDataForm = this.formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
-            password: ['', Validators.required]
+            password: ['', [Validators.required, Validators.pattern('((?=.*[a-z])(?=.*\\d)(?=.*[A-Z]).{6,20})')]]
         });
         this.userDataForm = this.formBuilder.group({
             name: ['', Validators.required],
@@ -40,5 +43,14 @@ export class SignupComponent implements OnInit {
         this.teamDataForm.controls.phone.setValue(this.userDataForm.value.phone);
         this.teamDataForm.controls.email.setValue(this.signUpDataForm.value.email);
         this.teamDataForm.clearValidators();
+    }
+
+    save() {
+        const credentials = this.signUpDataForm.getRawValue() as Credentials;
+        let user: User = this.userDataForm.getRawValue() as User;
+        user = {...user, email: credentials.email};
+        const team = this.teamDataForm.getRawValue() as Team;
+
+        this.firebase.newUserSignedIn(credentials, user, team);
     }
 }

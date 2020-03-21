@@ -1,6 +1,8 @@
 <div id="background" class="h-100 d-flex align-items-center justify-content-center">
     <mat-horizontal-stepper [linear]="true" class="rounded">
+
         <mat-step class="mt-2" [stepControl]="signUpDataForm">
+            <h4>{{'auth.sign-up' | translate}}</h4>
             <form [formGroup]="signUpDataForm">
                 <ng-template matStepLabel>{{'auth.sign-up' | translate}}</ng-template>
                 <div>
@@ -14,16 +16,17 @@
                     <mat-form-field>
                         <mat-label>{{'auth.password' | translate}}</mat-label>
                         <input matInput type="password" formControlName="password" required>
+                        <mat-error *ngIf="userDataForm.invalid">{{'auth.password-validation' | translate}}</mat-error>
                     </mat-form-field>
                 </div>
                 <div class="float-right">
                     <button mat-raised-button matStepperNext class="mt-2">Next</button>
                 </div>
             </form>
-
         </mat-step>
 
         <mat-step class="mt-2" [stepControl]="userDataForm">
+            <h4>{{'auth.write-user-info' | translate}}</h4>
             <form [formGroup]="userDataForm">
                 <ng-template matStepLabel>{{'auth.write-user-info' | translate}}</ng-template>
 
@@ -42,10 +45,10 @@
                     <button mat-button matStepperNext (click)="beforeTeamData()">Next</button>
                 </div>
             </form>
-
         </mat-step>
 
         <mat-step [stepControl]="teamDataForm">
+            <h4>{{'auth.create-team' | translate}}</h4>
             <form [formGroup]="teamDataForm">
                 <ng-template matStepLabel>{{'auth.create-team' | translate}}</ng-template>
                 <mat-form-field>
@@ -79,7 +82,12 @@
         </mat-step>
 
         <mat-step>
+            <h4>{{'auth.done' | translate}}</h4>
             <ng-template matStepLabel>{{'auth.done' | translate}}</ng-template>
+            <p>{{'auth.start-help-description' | translate}}</p>
+            <button mat-raised-button color="primary" (click)="save()">{{'auth.start-help' | translate}}</button>
+
+            <mat-error *ngIf="!!signUpError">{{signUpError}}</mat-error>
         </mat-step>
     </mat-horizontal-stepper>
 </div>
