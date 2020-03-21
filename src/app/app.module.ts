@@ -40,7 +40,6 @@ import {MainComponent} from './main/main.component';
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAuthModule,
         MatToolbarModule,
-        TranslateModule,
         HttpClientModule,
         TranslateModule.forRoot({
             loader: {

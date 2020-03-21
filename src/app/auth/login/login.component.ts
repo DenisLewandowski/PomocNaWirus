@@ -11,6 +11,7 @@ import {FirebaseAuthService} from '../firebase-auth.service';
 export class LoginComponent implements OnInit {
     form: FormGroup;
     failedAuthMessage: boolean;
+    showSpinner: boolean;
 
     constructor(private formBuilder: FormBuilder, private firebaseAuth: FirebaseAuthService, private router: Router) {
         this.initForm();
@@ -27,11 +28,14 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
+        this.showSpinner = true;
         this.firebaseAuth.login(this.form.getRawValue()).then(() => {
             this.failedAuthMessage = false;
+            this.showSpinner = false;
             this.router.navigate(['/home']);
         }).catch(() => {
             this.failedAuthMessage = true;
+            this.showSpinner = false;
         });
     }
 }

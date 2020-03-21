@@ -3,6 +3,7 @@ import {RouterModule} from '@angular/router';
 import {AuthGuardChild} from './auth/auth-guard-child.service';
 import {AuthGuard} from './auth/auth-guard.service';
 import {LoginComponent} from './auth/login/login.component';
+import {SignupComponent} from './auth/signup/signup.component';
 import {HomeComponent} from './home/home.component';
 import {MainComponent} from './main/main.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
@@ -25,6 +26,7 @@ const appRoutes = [
         ]
     },
     {path: 'login', component: LoginComponent},
+    {path: 'sign-up', component: SignupComponent},
     {path: '**', component: PageNotFoundComponent}
 ];
 

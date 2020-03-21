@@ -1,10 +1,25 @@
 {
   "app-name": "CoopWhenVirus",
   "page-not-found": "Sorry, page not found!",
-
   "menu": {
     "home": "Home",
     "help": "Help",
     "settings": "Settings"
+  },
+  "auth": {
+    "login": "Login",
+    "password": "Password",
+    "sign-up": "Sign Up",
+    "write-user-info": "Write something about you",
+    "create-team": "Create your help team!",
+    "done": "Done",
+    "whats-your-name": "Whats your name?",
+    "email-validation": "Incorrect email!",
+    "empty-field": "You must fill this field",
+    "phone": "Phone Number",
+    "team-name": "Team name",
+    "team-email": "Team leader email",
+    "team-phone": "Team leader's phone number",
+    "city": "City"
   }
 }
