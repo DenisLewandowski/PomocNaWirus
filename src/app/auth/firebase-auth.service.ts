@@ -6,6 +6,7 @@ import {Observable, of} from 'rxjs';
 import {switchMap} from 'rxjs/operators';
 import {User} from './user.model';
 
+
 export interface Credentials {
     email: string;
     password: string;
@@ -15,7 +16,6 @@ export interface Credentials {
     providedIn: 'root'
 })
 export class FirebaseAuthService {
-
     user$: Observable<User>;
 
     constructor(private fireAuth: AngularFireAuth, private firestore: AngularFirestore, private router: Router) {
@@ -31,8 +31,9 @@ export class FirebaseAuthService {
     }
 
     async signOut() {
-        await this.fireAuth.auth.signOut();
-        return this.router.navigate['/'];
+        await this.fireAuth.auth.signOut().then(
+            () => this.router.navigate(['/login'])
+        );
     }
 
     login(credentials: Credentials) {

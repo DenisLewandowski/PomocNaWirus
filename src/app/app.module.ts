@@ -61,7 +61,7 @@ import {MainComponent} from './main/main.component';
         MatTableModule
     ],
     providers: [
-        {provide: AngularFirestore}
+        AngularFirestore
     ],
     bootstrap: [AppComponent]
 })

@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.firebaseAuth.login(this.form.getRawValue()).then(() => {
-                this.failedAuthMessage = false;
-                this.router.navigate(['/home']);
+            this.failedAuthMessage = false;
+            this.router.navigate(['/home']);
         }).catch(() => {
             this.failedAuthMessage = true;
         });
