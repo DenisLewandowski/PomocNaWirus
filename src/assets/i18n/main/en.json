@@ -1,14 +1,23 @@
 {
   "app-name": "CoopWhenVirus",
   "page-not-found": "Sorry, page not found!",
+  "edit": "Edit",
+  "save": "Save",
+  "cancel": "Cancel",
+  "add": "Add new",
+  "delete": "Delete",
+  "view": "View",
   "menu": {
     "home": "Home",
+    "tasks": "Tasks",
     "help": "Help",
+    "team": "Team",
     "settings": "Settings"
   },
   "auth": {
     "login": "Login",
     "password": "Password",
+    "have-account": "Don't have an account?",
     "sign-up": "Sign Up",
     "write-user-info": "Write something about you",
     "create-team": "Create your help team!",
@@ -18,12 +27,20 @@
     "password-validation": "Password must contain at least 6 signs, upper/lowercase and number",
     "empty-field": "You must fill this field",
     "phone": "Phone Number",
-    "team-name": "Team name",
-    "team-email": "Team leader email",
-    "team-phone": "Team leader's phone number",
     "city": "City",
     "start-help-description": "Now you are ready to help. Find your teammates, create tasks and begin local kindness!",
     "start-help": "Let's start to help!",
-    "sign-up-error": "Something went wrong, try you internet connection"
+    "sign-up-error": "Something went wrong, try you internet connection",
+    "logout": "Logout"
+  },
+  "team": {
+    "name": "Team name",
+    "email": "Team leader email",
+    "phone": "Team leader's phone number",
+    "city": "City",
+    "settings": "Team Settings"
+  },
+  "task": {
+    "list": "Task List"
   }
 }

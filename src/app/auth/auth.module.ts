@@ -13,8 +13,8 @@ import {
     MatProgressSpinnerModule,
     MatStepperModule
 } from '@angular/material';
+import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
-import {FirebaseAuthService} from './firebase-auth.service';
 import {LoginComponent} from './login/login.component';
 import {SignupComponent} from './signup/signup.component';
 
@@ -32,7 +32,8 @@ import {SignupComponent} from './signup/signup.component';
         MatProgressSpinnerModule,
         MatStepperModule,
         HttpClientModule,
-        MatIconModule
+        MatIconModule,
+        RouterModule
     ],
     providers: [
         AngularFirestore,

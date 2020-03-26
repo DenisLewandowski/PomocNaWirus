@@ -29,9 +29,11 @@
 
                 <span *ngIf="failedAuthMessage" class="text-center mat-error mt-2">Wrong email or password!</span>
             </div>
-
-
         </mat-card>
 
+        <div class="mt-4 text-center">
+            <span style="color: white">{{'auth.have-account' | translate}}</span>
+            <a routerLink="/sign-up" class="ml-2">{{'auth.sign-up' | translate}}</a>
+        </div>
     </div>
 </div>

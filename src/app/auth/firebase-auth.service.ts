@@ -3,10 +3,10 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFireDatabase, AngularFireObject} from '@angular/fire/database';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Router} from '@angular/router';
-import {Team} from './team.model';
+import {Observable} from 'rxjs';
+import {Team} from '../team/team.model';
 import {User} from './user.model';
 import UserCredential = firebase.auth.UserCredential;
-
 
 export interface Credentials {
     email: string;
@@ -18,12 +18,18 @@ export interface Credentials {
 })
 export class FirebaseAuthService {
     teamReference: AngularFireObject<Team>;
+    user$: Observable<User>;
 
     constructor(private fireAuth: AngularFireAuth,
                 private db: AngularFireDatabase,
                 private firestore: AngularFirestore,
                 private router: Router) {
         this.teamReference = db.object('/teams');
+        this.fireAuth.authState.subscribe(user => {
+            if (user) {
+                this.user$ = this.firestore.doc<User>(`users/${user.uid}`).valueChanges();
+            }
+        });
     }
 
     async signOut() {
@@ -40,16 +46,16 @@ export class FirebaseAuthService {
         return this.fireAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
     }
 
-    newUserSignedIn(credentials: Credentials, user: User, team: Team) {
-        this.register(credentials).then(credentials => {
+    newUserSignedIn(cred: Credentials, user: User, team: Team) {
+        this.register(cred).then(credentials => {
             if (credentials.user) {
-                const teamRef = this.firestore.collection('teams').ref.doc();
-                const userRef = this.firestore.collection('users').ref.doc();
+                const teamRef = this.firestore.collection('teams').ref;
+                const userRef = this.firestore.collection('users').ref;
 
-                userRef.set({...user, uid: credentials.user.uid, userType: 'ADMIN', teamId: teamRef.id}).then(() => {
-                    teamRef.set({...team, admins: [credentials.user.uid]}).then(() => this.login(credentials).then(() => this.router.navigate(['/home'])));
-                });
-                return '';
+                userRef.doc(credentials.user.uid).set({...user, userType: 'ADMIN', teamId: teamRef.id})
+                    .then(() => this.login(cred))
+                    .then(() => teamRef.doc().set({...team, admins: [credentials.user.uid]}))
+                    .then(() => this.router.navigate(['/home']));
             }
         }).catch(err => {
             return err.message;

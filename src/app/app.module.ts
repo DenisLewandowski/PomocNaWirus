@@ -3,10 +3,10 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {
-    MatButtonModule,
+    MatButtonModule, MatCardModule, MatExpansionModule, MatFormFieldModule,
     MatIconModule,
     MatListModule,
-    MatRippleModule,
+    MatRippleModule, MatSelectModule,
     MatSidenavModule,
     MatTableModule,
     MatToolbarModule
@@ -26,6 +26,8 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
 import {SettingsModule} from './settings/settings.module';
 import {MainComponent} from './main/main.component';
+import {TaskModule} from './tasks/task.module';
+import {TeamModule} from './team/team.module';
 
 @NgModule({
     declarations: [
@@ -57,7 +59,13 @@ import {MainComponent} from './main/main.component';
         AppRoutingModule,
         SettingsModule,
         AuthModule,
-        MatTableModule
+        MatTableModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatExpansionModule,
+        TeamModule,
+        MatCardModule,
+        TaskModule
     ],
     providers: [
         AngularFirestore
