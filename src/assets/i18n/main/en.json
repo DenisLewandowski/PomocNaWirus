@@ -9,7 +9,7 @@
   "view": "View",
   "menu": {
     "home": "Home",
-    "tasks": "Tasks",
+    "orders": "Orders",
     "help": "Help",
     "team": "Team",
     "settings": "Settings"
@@ -40,7 +40,17 @@
     "city": "City",
     "settings": "Team Settings"
   },
-  "task": {
-    "list": "Task List"
+  "order": {
+    "order": "Order",
+    "list": "Orders List",
+    "needyName": "Needy name",
+    "phone": "Needy contact number",
+    "email": "Needy email",
+    "city": "City",
+    "address": "Address",
+    "tasks": "Tasks",
+    "shopping-list": "Shopping List",
+    "pet-care": "Pet Care",
+    "other": "Other"
   }
 }

@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Order} from '../task.model';
+import {Order} from '../order.model';
 
 @Component({
     selector: 'app-task-list',
-    templateUrl: './task-list.component.html',
-    styleUrls: ['./task-list.component.scss']
+    templateUrl: './order-list.component.html',
+    styleUrls: ['./order-list.component.scss']
 })
-export class TaskListComponent implements OnInit {
+export class OrderListComponent implements OnInit {
 
     orders: Order[] = [];
 
@@ -45,7 +45,7 @@ export class TaskListComponent implements OnInit {
     }
 
     addNew() {
-        this.router.navigate(['tasks/new']);
+        this.router.navigate(['orders/new']);
     }
 
     delete(orderIndex: number) {

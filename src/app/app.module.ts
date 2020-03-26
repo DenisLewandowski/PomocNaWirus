@@ -26,7 +26,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HomeComponent} from './home/home.component';
 import {SettingsModule} from './settings/settings.module';
 import {MainComponent} from './main/main.component';
-import {TaskModule} from './tasks/task.module';
+import {OrderModule} from './tasks/order.module';
 import {TeamModule} from './team/team.module';
 
 @NgModule({
@@ -65,7 +65,7 @@ import {TeamModule} from './team/team.module';
         MatExpansionModule,
         TeamModule,
         MatCardModule,
-        TaskModule
+        OrderModule
     ],
     providers: [
         AngularFirestore
