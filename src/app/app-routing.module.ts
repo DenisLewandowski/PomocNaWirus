@@ -28,7 +28,8 @@ const appRoutes = [
             {path: 'settings', component: GeneralSettingsComponent},
             {path: 'team', component: TeamSettingsComponent},
             {path: 'orders', component: OrderListComponent},
-            {path: 'orders/new', component: OrderComponent}
+            {path: 'orders/new', component: OrderComponent},
+            {path: 'orders/:id', component: OrderComponent}
         ]
     },
     {path: 'login', component: LoginComponent},

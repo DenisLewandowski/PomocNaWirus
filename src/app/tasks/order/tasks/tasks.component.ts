@@ -23,7 +23,6 @@ export class TasksComponent implements OnInit {
 
     ngOnInit() {
         this.initTaskTypes();
-        this.editMode = true;
         this.todayDate = new Date();
     }
 

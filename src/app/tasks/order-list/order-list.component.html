@@ -1,15 +1,18 @@
+<mat-toolbar class="d-flex justify-content-between">
+    <span class="ml-3">{{'menu.orders' | translate}}</span>
+</mat-toolbar>
+
 <mat-card class="col-xl-9 col-sm-11 mx-4 my-4" cdkScrollable>
 
-    <div>
-        <span class="ml-2">{{'order.list' | translate}}</span>
-        <button mat-button color="primary" class="float-right" (click)="addNew()">
+    <div class="d-flex justify-content-between align-items-center">
+        <span class="ml-3">{{'order.list' | translate}}</span>
+        <button mat-button color="primary" (click)="addNew()">
             <mat-icon inline="true">add</mat-icon>
             {{'add' | translate}}
         </button>
     </div>
 
     <mat-card-content>
-
         <mat-list>
             <mat-list-item class="mt-2" *ngFor="let order of orders">
 
@@ -17,18 +20,20 @@
                 <p matLine>{{order.needyName}}</p>
                 <p matLine>{{order.address}}</p>
 
-                <button mat-icon-button matTooltip="{{'view' | translate}}" class="float-right" (click)="drillDown(order)">
+                <button mat-icon-button matTooltip="{{'view' | translate}}" class="float-right" (click)="view(order)">
                     <mat-icon inline="true">description</mat-icon>
                 </button>
                 <button mat-icon-button matTooltip="{{'edit' | translate}}" class="float-right" (click)="edit(order)">
                     <mat-icon inline="true">edit</mat-icon>
                 </button>
-                <button mat-icon-button matTooltip="{{'delete' | translate}}" class="float-right" (click)="delete(orders.indexOf(order))">
+                <button mat-icon-button matTooltip="{{'delete' | translate}}" class="float-right" (click)="delete(order.id)">
                     <mat-icon inline="true">delete</mat-icon>
                 </button>
                 <mat-divider></mat-divider>
             </mat-list-item>
         </mat-list>
+
+<!--        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>-->
     </mat-card-content>
 
 </mat-card>

@@ -49,12 +49,12 @@ export class FirebaseAuthService {
     newUserSignedIn(cred: Credentials, user: User, team: Team) {
         this.register(cred).then(credentials => {
             if (credentials.user) {
-                const teamRef = this.firestore.collection('teams').ref;
+                const teamRef = this.firestore.collection('teams').ref.doc();
                 const userRef = this.firestore.collection('users').ref;
 
                 userRef.doc(credentials.user.uid).set({...user, userType: 'ADMIN', teamId: teamRef.id})
                     .then(() => this.login(cred))
-                    .then(() => teamRef.doc().set({...team, admins: [credentials.user.uid]}))
+                    .then(() => teamRef.set({...team, admins: [credentials.user.uid]}))
                     .then(() => this.router.navigate(['/home']));
             }
         }).catch(err => {

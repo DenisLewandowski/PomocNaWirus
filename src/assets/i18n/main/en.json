@@ -1,5 +1,5 @@
 {
-  "app-name": "CoopWhenVirus",
+  "app-name": "CoOpWhenVirus",
   "page-not-found": "Sorry, page not found!",
   "edit": "Edit",
   "save": "Save",
@@ -44,7 +44,7 @@
     "order": "Order",
     "details": "Order Details",
     "task-list": "Task List",
-    "list": "Orders List",
+    "list": "Order List",
     "needyName": "Needy name",
     "phone": "Needy contact number",
     "email": "Needy email",
@@ -60,5 +60,10 @@
     "date": "Choose requested realization date",
     "description": "Task Description",
     "description-placeholder": "Describe the task here..."
+  },
+  "messages": {
+      "saved": "Saved Successfully!",
+      "deleted": "Deleted Successfully!",
+      "error": "Ops, something went wrong!"
   }
 }

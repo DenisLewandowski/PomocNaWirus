@@ -6,7 +6,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {ReactiveFormsModule} from '@angular/forms';
 import {
     MatButtonModule, MatCardModule, MatFormFieldModule,
-    MatIconModule, MatInputModule, MatSnackBarModule
+    MatIconModule, MatInputModule, MatSnackBarModule, MatToolbarModule
 } from '@angular/material';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -34,7 +34,8 @@ import {TeamComponent} from './team.component';
         MatFormFieldModule,
         MatInputModule,
         MatSnackBarModule,
-        AuthModule
+        AuthModule,
+        MatToolbarModule
     ],
     providers: [
         FirebaseAuthService,

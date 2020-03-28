@@ -3,7 +3,6 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {FirebaseAuthService} from '../auth/firebase-auth.service';
 import {Team} from './team.model';
 
 @Injectable({

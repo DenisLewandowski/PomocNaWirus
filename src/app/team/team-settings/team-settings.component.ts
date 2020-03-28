@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MatSnackBar} from '@angular/material';
 import {FirebaseAuthService} from '../../auth/firebase-auth.service';
+import {NotificationService} from '../../notification.service';
 import {Team} from '../team.model';
 import {TeamService} from '../team.service';
 
@@ -19,7 +19,7 @@ export class TeamSettingsComponent implements OnInit {
     constructor(private formBuilder: FormBuilder,
                 private auth: FirebaseAuthService,
                 private teamService: TeamService,
-                private snackBar: MatSnackBar) {
+                private notificationService: NotificationService) {
     }
 
     ngOnInit() {
@@ -51,10 +51,9 @@ export class TeamSettingsComponent implements OnInit {
     save() {
         if (this.form.valid) {
             this.teamService.saveTeam(this.teamId, this.form.getRawValue())
-                .then(() => this.snackBar.open('Saved successfully!', 'OK',
-                    {verticalPosition: 'top', duration: 1500, horizontalPosition: 'right'}))
+                .then(() => this.notificationService.savedSuccessfully())
                 .catch(() => {
-                    this.snackBar.open('Saving failed!', 'OK', {verticalPosition: 'top', duration: 1500, horizontalPosition: 'right'});
+                    this.notificationService.error();
                     this.teamService.getTeam(this.teamId).subscribe(team => {
                         this.team = team;
                         this.form.setValue({name: team.name, city: team.city, email: team.email, phone: team.phone});

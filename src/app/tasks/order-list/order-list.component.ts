@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {AngularFirestore} from '@angular/fire/firestore';
 import {Router} from '@angular/router';
+import {FirebaseAuthService} from '../../auth/firebase-auth.service';
+import {NotificationService} from '../../notification.service';
 import {Order} from '../order.model';
 
 @Component({
@@ -10,37 +13,20 @@ import {Order} from '../order.model';
 export class OrderListComponent implements OnInit {
 
     orders: Order[] = [];
+    teamId: string;
 
-    constructor(private router: Router) {
+    constructor(private router: Router,
+                private db: AngularFirestore,
+                private auth: FirebaseAuthService,
+                private notificationService: NotificationService) {
     }
 
     ngOnInit() {
-        this.orders.push({
-            id: '',
-            teamId: '',
-            needyName: 'Genowefa Pigwa',
-            address: 'Zjednoczenia 14/5',
-            email: 'genowefa@wp.pl',
-            phone: '123444333',
-            tasks: []
-        });
-        this.orders.push({
-            id: '',
-            teamId: '',
-            needyName: 'Mariusz Henio',
-            address: 'Warszawska 11C/5',
-            email: 'mariohen@wp.pl',
-            phone: '987354212',
-            tasks: []
-        });
-        this.orders.push({
-            id: '',
-            teamId: '',
-            needyName: 'Gienek Loska',
-            address: 'Legnicka 55/2',
-            email: 'loska.gienek@gmail.com',
-            phone: '927362727',
-            tasks: []
+        this.auth.user$.subscribe(user => {
+            this.teamId = user.teamId;
+            this.db.collection('orders', ref => ref.where('teamId', '==', this.teamId)).get().subscribe(
+                orders => orders.forEach(o => this.orders.push( {...o.data() as Order, id: o.id}))
+            );
         });
     }
 
@@ -48,15 +34,19 @@ export class OrderListComponent implements OnInit {
         this.router.navigate(['orders/new']);
     }
 
-    delete(orderIndex: number) {
-        this.orders.splice(orderIndex, 1);
+    delete(orderId: string) {
+        this.db.collection('/orders').doc(orderId).delete().then(() => {
+            this.notificationService.deletedSuccessfully();
+            this.orders = this.orders.filter(o => o.id !== orderId);
+        })
+            .catch(() => this.notificationService.error());
     }
 
     edit(order: Order) {
-
+        this.router.navigateByUrl('/orders/' + order.id, {state: order});
     }
 
-    drillDown(order: Order) {
-
+    view(order: Order) {
+        this.router.navigateByUrl('/orders/' + order.id, {state: order});
     }
 }

@@ -1,18 +1,24 @@
+<mat-toolbar class="d-flex justify-content-between">
+    <span class="ml-3">{{'menu.team' | translate}}</span>
+</mat-toolbar>
+
 <mat-card class="col-xl-6 col-sm-11 mx-4 my-4">
-    <div>
+    <div class="d-flex justify-content-between align-items-center">
         <span class="ml-2">{{'team.settings' | translate}}</span>
-        <button *ngIf="!editMode" mat-button color="primary" class="float-right" (click)="edit()">
-            <mat-icon inline="true">edit</mat-icon>
-            {{'edit' | translate}}
-        </button>
-        <button *ngIf="editMode" mat-button color="primary" class="float-right" (click)="cancel()">
-            <mat-icon inline="true">cancel</mat-icon>
-            {{'cancel' | translate}}
-        </button>
-        <button *ngIf="editMode" mat-button color="primary" class="float-right" (click)="save()">
-            <mat-icon inline="true">save</mat-icon>
-            {{'save' | translate}}
-        </button>
+        <div>
+            <button *ngIf="!editMode" mat-button color="primary" (click)="edit()">
+                <mat-icon inline="true">edit</mat-icon>
+                {{'edit' | translate}}
+            </button>
+            <button *ngIf="editMode" mat-button color="primary" (click)="save()">
+                <mat-icon inline="true">save</mat-icon>
+                {{'save' | translate}}
+            </button>
+            <button *ngIf="editMode" mat-button color="primary" (click)="cancel()">
+                <mat-icon inline="true">cancel</mat-icon>
+                {{'cancel' | translate}}
+            </button>
+        </div>
     </div>
 
     <mat-card-content>
