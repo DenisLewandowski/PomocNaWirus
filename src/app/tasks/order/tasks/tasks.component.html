@@ -1,0 +1,56 @@
+<mat-card class="my-4 mr-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <span class="ml-2">{{'order.task-list' | translate}}</span>
+        <button mat-button color="primary" [disabled]="!editMode" (click)="add()">
+            <mat-icon inline="true">add</mat-icon>
+            {{'order.add-task' | translate}}
+        </button>
+    </div>
+
+    <mat-card-content class="mt-4 mb-2">
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let task of tasks">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon class="mr-2">{{getTaskType(task.type).iconName}}</mat-icon>
+                        {{getTaskType(task.type).i18n | translate}}
+                    </mat-panel-title>
+
+                    <mat-panel-description>
+
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-form-field class="w-50">
+                    <mat-label>{{'order.task-type' | translate}}</mat-label>
+                    <mat-select (valueChange)="task.type = $event">
+                        <mat-option *ngFor="let taskType of taskTypes" [value]="taskType.value">{{taskType.i18n | translate}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <div>
+                    <mat-form-field class="w-50">
+                        <mat-label>{{'order.date' | translate}}</mat-label>
+                        <input matInput [matDatepicker]="picker" [min]="todayDate" [ngModel]="task.realizationDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="mt-2">
+                    <mat-form-field class="w-50">
+                        <mat-label>{{'order.description' | translate}}</mat-label>
+                        <textarea matInput style="height: 5rem" placeholder="{{'order.description-placeholder' | translate}}" [(ngModel)]="task.description"></textarea>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <button mat-button class="float-right mr-2" (click)="delete(task)">
+                        <mat-icon class="mr-1" inline>delete</mat-icon>
+                        {{'delete' | translate}}
+                    </button>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-card-content>
+</mat-card>

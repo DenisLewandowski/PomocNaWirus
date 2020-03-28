@@ -21,6 +21,10 @@
                 <mat-icon class="mr-2 color-sidebar-item">settings</mat-icon>
                 {{'menu.settings' | translate}}
             </a>
+            <a mat-list-item routerLinkActive="active-item" class="color-sidebar-item rounded" (click)="logout()">
+                <mat-icon class="mr-2 color-sidebar-item">directions_run</mat-icon>
+                {{'logout' | translate}}
+            </a>
             <hr class="mt-5 bg-sidebar-item">
             <a mat-list-item class="color-sidebar-item rounded">
                 <mat-icon class="mr-2 color-sidebar-item">help</mat-icon>
@@ -30,10 +34,6 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <button mat-button class="float-right mt-2 mr-2" (click)="logout()">{{'logout' | translate}}
-        <mat-icon>directions_run</mat-icon>
-        </button>
-
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 

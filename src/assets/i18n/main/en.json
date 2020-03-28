@@ -42,6 +42,8 @@
   },
   "order": {
     "order": "Order",
+    "details": "Order Details",
+    "task-list": "Task List",
     "list": "Orders List",
     "needyName": "Needy name",
     "phone": "Needy contact number",
@@ -49,8 +51,14 @@
     "city": "City",
     "address": "Address",
     "tasks": "Tasks",
-    "shopping-list": "Shopping List",
+    "add": "Add Order",
+    "add-task": "Add Task",
+    "task-type": "Task type",
+    "shopping": "Shopping List",
     "pet-care": "Pet Care",
-    "other": "Other"
+    "other": "Other",
+    "date": "Choose requested realization date",
+    "description": "Task Description",
+    "description-placeholder": "Describe the task here..."
   }
 }

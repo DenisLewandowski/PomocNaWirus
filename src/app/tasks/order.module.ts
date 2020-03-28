@@ -1,18 +1,19 @@
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
-    MatButtonModule, MatCardModule, MatFormFieldModule,
-    MatIconModule, MatInputModule, MatListModule, MatTabsModule, MatTooltipModule
+    MatButtonModule, MatCardModule, MatDatepickerModule, MatExpansionModule, MatFormFieldModule,
+    MatIconModule, MatInputModule, MatListModule, MatNativeDateModule, MatSelectModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import {TranslateModule} from '@ngx-translate/core';
 import {AuthModule} from '../auth/auth.module';
 import {OrderListComponent} from './order-list/order-list.component';
 import {OrderComponent} from './order/order.component';
+import { TasksComponent } from './order/tasks/tasks.component';
 
 @NgModule({
-    declarations: [OrderListComponent, OrderComponent],
+    declarations: [OrderListComponent, OrderComponent, TasksComponent, TasksComponent],
     imports: [
         CommonModule,
         TranslateModule,
@@ -26,7 +27,15 @@ import {OrderComponent} from './order/order.component';
         ReactiveFormsModule,
         MatFormFieldModule,
         MatInputModule,
-        MatTabsModule
+        MatExpansionModule,
+        MatToolbarModule,
+        MatSelectModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        FormsModule
+    ],
+    providers: [
+
     ]
 })
 export class OrderModule {

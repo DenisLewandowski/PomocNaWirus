@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {Task} from '../task.model';
 
 @Component({
     selector: 'app-order',
@@ -9,6 +10,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class OrderComponent implements OnInit {
     editMode: boolean;
     form: FormGroup;
+    tasks: Array<Task> = [];
 
     constructor(private formBuilder: FormBuilder) {
     }

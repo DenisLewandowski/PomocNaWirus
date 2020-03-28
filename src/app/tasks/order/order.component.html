@@ -1,79 +1,63 @@
-<mat-card class="col-xl-9 col-sm-11 mx-4 my-4">
+<mat-toolbar class="d-flex justify-content-between">
+    <span>{{'order.add' | translate}}</span>
 
-    <div>
-        <span class="ml-2">{{'order.order' | translate}}</span>
-        <button *ngIf="!editMode" mat-button color="primary" class="float-right" (click)="edit()">
+    <div class="">
+        <button *ngIf="!editMode" mat-raised-button color="primary" (click)="edit()">
             <mat-icon inline="true">edit</mat-icon>
             {{'edit' | translate}}
         </button>
-        <button *ngIf="editMode" mat-button color="primary" class="float-right" (click)="cancel()">
-            <mat-icon inline="true">cancel</mat-icon>
-            {{'cancel' | translate}}
-        </button>
-        <button *ngIf="editMode" mat-button color="primary" class="float-right" (click)="save()">
+        <button *ngIf="editMode" mat-raised-button class="mr-2" color="primary" (click)="save()">
             <mat-icon inline="true">save</mat-icon>
             {{'save' | translate}}
         </button>
+        <button *ngIf="editMode" mat-raised-button color="primary" (click)="cancel()">
+            <mat-icon inline="true">cancel</mat-icon>
+            {{'cancel' | translate}}
+        </button>
     </div>
+</mat-toolbar>
 
-    <mat-card-content>
-        <form [formGroup]="form" class="row ml-2 my-4">
+<div class="row mx-2">
 
-            <div class="col-4">
-                <div>
-                    <mat-form-field>
-                        <mat-label>{{'order.needyName' | translate}}</mat-label>
-                        <input matInput formControlName="needyName" required>
-                    </mat-form-field>
+    <mat-card class="col-xl-4 col-sm-11 mx-4 my-4">
+        <span class="ml-2">{{'order.details' | translate}}</span>
+        <mat-card-content class="row ml-2 my-4">
+            <form [formGroup]="form">
+                <div class="col-4">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>{{'order.needyName' | translate}}</mat-label>
+                            <input matInput formControlName="needyName" required>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>{{'order.address' | translate}}</mat-label>
+                            <input matInput formControlName="address" required>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>{{'order.city' | translate}}</mat-label>
+                            <input matInput formControlName="city" required>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>{{'order.phone' | translate}}</mat-label>
+                            <input matInput formControlName="phone">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>{{'order.email' | translate}}</mat-label>
+                            <input matInput formControlName="email">
+                        </mat-form-field>
+                    </div>
                 </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>{{'order.address' | translate}}</mat-label>
-                        <input matInput formControlName="address" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>{{'order.city' | translate}}</mat-label>
-                        <input matInput formControlName="city" required>
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>{{'order.phone' | translate}}</mat-label>
-                        <input matInput formControlName="phone">
-                    </mat-form-field>
-                </div>
-                <div>
-                    <mat-form-field>
-                        <mat-label>{{'order.email' | translate}}</mat-label>
-                        <input matInput formControlName="email">
-                    </mat-form-field>
-                </div>
-            </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
 
-            <div class="">
-                <mat-tab-group>
-                    <mat-tab>
-                        <ng-template mat-tab-label>
-                            <mat-icon class="mr-1">local_mall</mat-icon>{{'order.shopping-list' | translate}}
-                        </ng-template>
-                    </mat-tab>
-                    <mat-tab>
-                        <ng-template mat-tab-label>
-                            <mat-icon class="mr-1">pets</mat-icon>{{'order.pet-care' | translate}}
-                        </ng-template>
-                    </mat-tab>
-                    <mat-tab>
-                        <ng-template mat-tab-label>
-                            <mat-icon class="mr-1">work_outline</mat-icon>{{'order.other' | translate}}
-                        </ng-template>
-                    </mat-tab>
-                </mat-tab-group>
-            </div>
-
-        </form>
-    </mat-card-content>
-
-</mat-card>
-
+    <app-tasks class="ml-2 mr-4 col-xl-6 col-sm-12"></app-tasks>
+</div>
