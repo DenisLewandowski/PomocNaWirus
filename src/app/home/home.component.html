@@ -1,1 +1,8 @@
-<h1 style="position: static">{{'app-name' | translate}}</h1>
+<h1 class="float-right app-name">{{'app-name' | translate}}</h1>
+<div class="d-flex align-items-center justify-content-center">
+    <youtube-player [videoId]="videoSrc"
+                    [suggestedQuality]="'hd720'"
+                    [height]="600"
+                    [width]="1080">
+    </youtube-player>
+</div>

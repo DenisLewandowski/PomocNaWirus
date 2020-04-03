@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto&display=swap');
+
+.app-name {
+  animation: slidingIn 1s 1 0s linear;
+  margin-top: 4vh;
+  margin-right: 3vw;
+  font-weight: 200;
+}
+
+@keyframes slidingIn {
+  0%{
+    transform: translateY(-12vh);
+    opacity: .1;
+  }
+  80%{
+    opacity: 1;
+    transform: translateY(-1vh);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}

@@ -14,6 +14,7 @@ import {
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
+import {YouTubePlayerModule} from '@angular/youtube-player';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {environment} from '../environments/environment.prod';
@@ -65,7 +66,8 @@ import {TeamModule} from './team/team.module';
         MatExpansionModule,
         TeamModule,
         MatCardModule,
-        OrderModule
+        OrderModule,
+        YouTubePlayerModule
     ],
     providers: [
         AngularFirestore

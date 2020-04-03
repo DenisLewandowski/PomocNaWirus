@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FirebaseAuthService} from '../auth/firebase-auth.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-home',
@@ -7,14 +7,17 @@ import {FirebaseAuthService} from '../auth/firebase-auth.service';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+    videoSrc: string;
 
-    constructor(private auth: FirebaseAuthService) {
+    constructor(private translate: TranslateService) {
+        const lang = translate.currentLang;
+        if (lang.toUpperCase() === 'PL') {
+            this.videoSrc = 'iwjXGTBNxtc';
+        } else {
+            this.videoSrc = 'iwjXGTBNxtc';
+        }
     }
 
     ngOnInit() {
-    }
-
-    logout() {
-        this.auth.signOut();
     }
 }
