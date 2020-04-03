@@ -7,6 +7,7 @@
   "add": "Add new",
   "delete": "Delete",
   "view": "View",
+  "copy": "Copy",
   "menu": {
     "home": "Home",
     "orders": "Orders",
@@ -38,7 +39,9 @@
     "email": "Team leader email",
     "phone": "Team leader's phone number",
     "city": "City",
-    "settings": "Team Settings"
+    "settings": "Team Settings",
+    "code": "Team Code",
+    "code-description": "This is your team code. Give it to your team members!"
   },
   "order": {
     "order": "Order",
@@ -62,8 +65,9 @@
     "description-placeholder": "Describe the task here..."
   },
   "messages": {
-      "saved": "Saved Successfully!",
-      "deleted": "Deleted Successfully!",
-      "error": "Ops, something went wrong!"
+    "saved": "Saved Successfully!",
+    "deleted": "Deleted Successfully!",
+    "error": "Ops, something went wrong!",
+    "teamCodeCopied": "Team Code Copied to Clipboard!"
   }
 }

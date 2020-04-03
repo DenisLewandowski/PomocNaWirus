@@ -12,10 +12,16 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$pomoc-na-wirus-primary: mat-palette($mat-indigo);
+//$pomoc-na-wirus-primary: mat-palette($mat-blue);
+$pomoc-na-wirus-primary: mat-palette($mat-blue, 700, 500, 800);
 $pomoc-na-wirus-accent: mat-palette($mat-pink, A200, A100, A400);
 
-$primary: #17577e;
+//$primary: #17577e;
+$primary: #1976d2;
+$primaryDarker: #1565c0;
+
+$text-color: #191919;
+$icon-color: #777777;
 
 // The warn palette is optional (defaults to red).
 $pomoc-na-wirus-warn: mat-palette($mat-red);

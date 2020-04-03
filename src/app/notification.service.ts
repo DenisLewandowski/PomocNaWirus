@@ -15,11 +15,13 @@ export class NotificationService {
 
     readonly savedSuccessfullyMessage: string;
     readonly deletedSuccessfullyMessage: string;
+    readonly copiedSuccessfullyMessage: string;
     readonly errorMessage: string;
 
     constructor(private snackBar: MatSnackBar, private translate: TranslateService) {
         this.savedSuccessfullyMessage = this.translate.instant('messages.saved');
         this.deletedSuccessfullyMessage = this.translate.instant('messages.deleted');
+        this.copiedSuccessfullyMessage = this.translate.instant('messages.teamCodeCopied');
         this.errorMessage = this.translate.instant('messages.error');
     }
 
@@ -29,6 +31,10 @@ export class NotificationService {
 
     deletedSuccessfully() {
         this.snackBar.open(this.deletedSuccessfullyMessage, 'OK', this.config);
+    }
+
+    copiedSuccessfully() {
+        this.snackBar.open(this.copiedSuccessfullyMessage, 'OK', this.config);
     }
 
     error() {

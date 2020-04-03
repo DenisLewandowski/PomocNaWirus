@@ -14,7 +14,6 @@ import {
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {YouTubePlayerModule} from '@angular/youtube-player';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {environment} from '../environments/environment.prod';
@@ -29,6 +28,7 @@ import {SettingsModule} from './settings/settings.module';
 import {MainComponent} from './main/main.component';
 import {OrderModule} from './tasks/order.module';
 import {TeamModule} from './team/team.module';
+import {VideoModule} from './video/video.module';
 
 @NgModule({
     declarations: [
@@ -67,7 +67,7 @@ import {TeamModule} from './team/team.module';
         TeamModule,
         MatCardModule,
         OrderModule,
-        YouTubePlayerModule
+        VideoModule
     ],
     providers: [
         AngularFirestore

@@ -1,0 +1,16 @@
+<mat-card class="h-100">
+    <div class="d-flex justify-content-between align-items-center">
+        <span class="ml-2">{{'team.code' | translate}}</span>
+        <button mat-button color="primary" (click)="copy()">
+            <mat-icon inline="true">filter_none</mat-icon>
+            {{'copy' | translate}}
+        </button>
+    </div>
+
+    <mat-card-content>
+        <div class="mt-5 d-flex justify-content-center align-items-center">
+            <h3 class="mt-4">{{teamId}}</h3>
+        </div>
+        <p class="text-center" style="font-size: x-small">{{'team.code-description' | translate}}</p>
+    </mat-card-content>
+</mat-card>

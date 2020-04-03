@@ -12,12 +12,15 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {AuthModule} from '../auth/auth.module';
 import {FirebaseAuthService} from '../auth/firebase-auth.service';
+import {NotificationService} from '../notification.service';
 import {TeamSettingsComponent} from './team-settings/team-settings.component';
 import {TeamComponent} from './team.component';
+import {TeamInviteComponent} from './team-invite/team-invite.component';
+
 
 
 @NgModule({
-    declarations: [TeamComponent, TeamSettingsComponent],
+    declarations: [TeamComponent, TeamSettingsComponent, TeamInviteComponent],
     imports: [
         CommonModule,
         MatCardModule,
@@ -40,7 +43,8 @@ import {TeamComponent} from './team.component';
     providers: [
         FirebaseAuthService,
         AngularFirestore,
-        AngularFireDatabase
+        AngularFireDatabase,
+        NotificationService
     ]
 })
 export class TeamModule {

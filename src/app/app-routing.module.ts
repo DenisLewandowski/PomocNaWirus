@@ -11,6 +11,7 @@ import {GeneralSettingsComponent} from './settings/general-settings/general-sett
 import {OrderListComponent} from './tasks/order-list/order-list.component';
 import {OrderComponent} from './tasks/order/order.component';
 import {TeamSettingsComponent} from './team/team-settings/team-settings.component';
+import {TeamComponent} from './team/team.component';
 
 const appRoutes = [
     {
@@ -26,7 +27,7 @@ const appRoutes = [
             },
             {path: 'home', component: HomeComponent},
             {path: 'settings', component: GeneralSettingsComponent},
-            {path: 'team', component: TeamSettingsComponent},
+            {path: 'team', component: TeamComponent},
             {path: 'orders', component: OrderListComponent},
             {path: 'orders/new', component: OrderComponent},
             {path: 'orders/:id', component: OrderComponent}

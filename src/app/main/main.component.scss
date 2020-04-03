@@ -1,10 +1,15 @@
 @import "~src/custom-theme";
 
 $item-color: #FFFFFF;
-$active-color: #04355c;
+//$active-color: #04355c;
+$active-color: #1565c0;
 
 #logo {
   width: 65%;
+}
+
+.app-title {
+  font-weight: 200;
 }
 
 mat-sidenav-container {
@@ -26,6 +31,5 @@ mat-sidenav {
 }
 
 .active-item {
-  background-color: $active-color !important;
-
+  background-color: $primaryDarker !important;
 }
