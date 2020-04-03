@@ -41,7 +41,8 @@
     "city": "City",
     "settings": "Team Settings",
     "code": "Team Code",
-    "code-description": "This is your team code. Give it to your team members!"
+    "code-description": "This is your team code. Give it to your team members!",
+    "member-list": "Member List"
   },
   "order": {
     "order": "Order",

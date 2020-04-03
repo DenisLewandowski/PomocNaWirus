@@ -1,0 +1,28 @@
+<mat-card cdkScrollable>
+
+    <div class="mt-2">
+        <span class="ml-2">{{'team.member-list' | translate}}</span>
+    </div>
+
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item class="mt-2" *ngFor="let member of members">
+
+                <mat-icon class="icon" matListIcon>emoji_people</mat-icon>
+                <p matLine>{{member.name}}</p>
+                <p style="font-size: x-small" matLine>Phone: {{member.phone}}</p>
+                <p style="font-size: x-small" matLine>Email: {{member.email}}</p>
+
+                <button mat-icon-button matTooltip="{{'view' | translate}}" class="float-right" (click)="view(member)">
+                    <mat-icon class="icon" inline="true">description</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="{{'delete' | translate}}" class="float-right" (click)="delete(member)">
+                    <mat-icon class="icon" inline="true">delete</mat-icon>
+                </button>
+                <mat-divider></mat-divider>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+
+</mat-card>
+

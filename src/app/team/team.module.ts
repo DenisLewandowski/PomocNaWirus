@@ -1,3 +1,4 @@
+import {ScrollingModule} from '@angular/cdk/scrolling';
 import {HttpClient} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
@@ -6,7 +7,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {ReactiveFormsModule} from '@angular/forms';
 import {
     MatButtonModule, MatCardModule, MatFormFieldModule,
-    MatIconModule, MatInputModule, MatSnackBarModule, MatToolbarModule
+    MatIconModule, MatInputModule, MatListModule, MatSnackBarModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -16,11 +17,12 @@ import {NotificationService} from '../notification.service';
 import {TeamSettingsComponent} from './team-settings/team-settings.component';
 import {TeamComponent} from './team.component';
 import {TeamInviteComponent} from './team-invite/team-invite.component';
+import { MemeberListComponent } from './memeber-list/memeber-list.component';
 
 
 
 @NgModule({
-    declarations: [TeamComponent, TeamSettingsComponent, TeamInviteComponent],
+    declarations: [TeamComponent, TeamSettingsComponent, TeamInviteComponent, MemeberListComponent],
     imports: [
         CommonModule,
         MatCardModule,
@@ -38,7 +40,10 @@ import {TeamInviteComponent} from './team-invite/team-invite.component';
         MatInputModule,
         MatSnackBarModule,
         AuthModule,
-        MatToolbarModule
+        MatToolbarModule,
+        MatListModule,
+        ScrollingModule,
+        MatTooltipModule
     ],
     providers: [
         FirebaseAuthService,
