@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+  	match /users/{userId} {
+      allow read, update, delete: if request.auth.uid == userId;
+      allow read, update : if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.userType == "ADMIN"
+      							&& get(/databases/$(database)/documents/users/$(request.auth.uid)).data.teamId == resource.data.teamId;
+      allow create: if request.auth.uid != null;
+    }
+    
+    match /teams/{teamId} {
+    	allow read, create: if request.auth.uid != null;
+    	allow update: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.teamId == teamId;
+      allow delete: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.userType == "ADMIN";
+    }
+    
+    match /orders/{orderId} {
+    	allow read, update: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.teamId == resource.data.teamId;
+      allow create, delete: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.userType == "ADMIN";
+    }
+  }
+}

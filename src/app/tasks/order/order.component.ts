@@ -2,8 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {map} from 'rxjs/operators';
 import {FirebaseAuthService} from '../../auth/firebase-auth.service';
+import {User} from '../../auth/user.model';
 import {NotificationService} from '../../common/notification.service';
 import {Order} from '../order.model';
 import {Task} from '../task.model';
@@ -17,9 +17,11 @@ import {TasksComponent} from './tasks/tasks.component';
 export class OrderComponent implements OnInit {
     editMode: boolean;
     form: FormGroup;
+    orderId: string;
     tasks: Array<Task> = [];
     teamId: string;
     mode: string;
+    volunteers: User[] = [];
 
     @ViewChild(TasksComponent, {static: true})
     tasksComponent: TasksComponent;
@@ -38,6 +40,7 @@ export class OrderComponent implements OnInit {
         this.prepareDependingOnMode();
         this.auth.user$.subscribe(user => {
             this.teamId = user.teamId;
+            this.loadVolunteers();
         });
     }
 
@@ -58,18 +61,21 @@ export class OrderComponent implements OnInit {
     }
 
     save() {
-        this.db.collection('orders').add(
-            {
-                ...this.form.getRawValue(),
-                teamId: this.teamId,
-                tasks: this.tasksComponent.tasks
-            })
-            .then(() => {
+        if (this.mode === 'new') {
+            this.addNewOrder().then(() => {
                 this.notificationService.savedSuccessfully();
                 this.router.navigate(['/orders']);
             }).catch(() => {
-            this.notificationService.error();
-        });
+                this.notificationService.error();
+            });
+        } else {
+            this.updateOrder().then(() => {
+                this.notificationService.savedSuccessfully();
+                this.router.navigate(['/orders']);
+            }).catch(() => {
+                this.notificationService.error();
+            });
+        }
     }
 
     cancel() {
@@ -82,20 +88,20 @@ export class OrderComponent implements OnInit {
         }
     }
 
-    private loadOrder() {
-        this.route.paramMap.pipe(map(() => window.history.state)).subscribe(state => {
-            if ((state as Order).id) {
-                const order = state as Order;
-                this.form.setValue({needyName: order.needyName, address: order.address, city: order.city, email: order.email, phone: order.phone});
-                this.tasksComponent.tasks = order.tasks;
-            } else {
-                this.db.collection('orders').doc(this.route.snapshot.url[this.route.snapshot.url.length - 1].path)
-                    .get().subscribe(o => {
-                    const order = o.data() as Order;
-                    this.form.setValue({needyName: order.needyName, address: order.address, city: order.city, email: order.email, phone: order.phone});
-                    this.tasksComponent.tasks = order.tasks;
-                });
+    private loadVolunteers() {
+        this.db.firestore.collection('/users').where('teamId', '==', this.teamId).get().then(
+            result => {
+                result.forEach(v => this.volunteers.push({...v.data() as User, id: v.id}));
             }
+        ).then(() => this.tasksComponent.volunteers = this.volunteers);
+    }
+
+    private loadOrder() {
+        this.orderId = this.route.snapshot.url[this.route.snapshot.url.length - 1].path;
+        this.db.collection('orders').doc(this.orderId).get().subscribe(o => {
+            const order = o.data() as Order;
+            this.form.setValue({needyName: order.needyName, address: order.address, city: order.city, email: order.email, phone: order.phone});
+            this.tasksComponent.tasks = order.tasks;
         });
     }
 
@@ -108,5 +114,22 @@ export class OrderComponent implements OnInit {
             this.loadOrder();
             this.form.disable();
         }
+    }
+
+    private addNewOrder() {
+        return this.db.collection('orders').add(
+            {
+                ...this.form.getRawValue(),
+                teamId: this.teamId,
+                tasks: this.tasksComponent.tasks
+            });
+    }
+
+    private updateOrder() {
+        console.log(this.orderId);
+        return this.db.collection('/orders').doc(this.orderId).update({
+            ...this.form.getRawValue(),
+            tasks: this.tasksComponent.tasks
+        });
     }
 }

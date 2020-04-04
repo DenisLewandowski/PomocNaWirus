@@ -27,7 +27,7 @@
                 <div>
                     <mat-form-field class="w-50">
                         <mat-label>{{'order.date' | translate}}</mat-label>
-                        <input matInput [matDatepicker]="picker" [min]="todayDate" [ngModel]="task.realizationDate" [disabled]="!editMode">
+                        <input matInput [matDatepicker]="picker" [min]="todayDate" [value]="toDate(task.realizationDate)" (dateChange)="dateChange($event, task)" [disabled]="!editMode">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>

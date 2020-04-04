@@ -1,4 +1,6 @@
 import {Task} from './task.model';
+import Timestamp = firebase.firestore.Timestamp;
+import * as firebase from 'firebase';
 
 export interface Order {
     id: string;

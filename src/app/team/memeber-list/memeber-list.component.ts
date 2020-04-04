@@ -34,20 +34,21 @@ export class MemeberListComponent implements OnInit {
     }
 
     delete(member: User) {
-        const dialogRef = this.dialog.open(ConfirmDialogComponent);
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {width: '25%'});
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 this.db.collection('/users').doc(member.id).update({
                     teamId: ''
                 }).then(() => {
-
                     this.db.firestore.collection('/orders').where('teamId', '==', this.teamId).get().then(orders => {
                         const ord: Order[] = [];
                         orders.forEach(o => ord.push({...o.data() as Order, id: o.id}));
                         ord.forEach(o => o.tasks.forEach(t => {
-                            if (t.volunteerId === member.id && t.status === TaskStatus.ASSIGNED) {
+                            if (t.volunteerId === member.id) {
                                 t.volunteerId = '';
-                                t.status = TaskStatus.ADDED;
+                                if (t.status === TaskStatus.ASSIGNED) {
+                                    t.status = TaskStatus.ADDED;
+                                }
                             }
                         }));
                         ord.forEach(o => {
@@ -60,7 +61,6 @@ export class MemeberListComponent implements OnInit {
                     this.members = this.members.filter(m => m.id !== member.id);
                 }).catch(() => this.notificationService.error());
             }
-
         });
     }
 }

@@ -7,7 +7,6 @@ import {FirebaseAuthService} from '../auth/firebase-auth.service';
     styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-    currentUserEmail: string;
 
     constructor(private auth: FirebaseAuthService) {
     }

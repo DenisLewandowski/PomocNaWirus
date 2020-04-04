@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "pomocnawirus"
+  },
+  "targets": {
+    "pomocnawirus": {
+      "hosting": {
+        "pomoc-na-wirus": [
+          "pomocnawirus"
+        ]
+      }
+    }
+  }
+}

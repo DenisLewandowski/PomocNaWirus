@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
+import {MatDatepickerInputEvent} from '@angular/material';
+import {User} from '../../../auth/user.model';
 import {TaskStatus} from '../../../common/task-status';
 import {Task} from '../../task.model';
+import * as firebase from 'firebase';
+import Timestamp = firebase.firestore.Timestamp;
 
 interface TaskType {
     value: string;
@@ -18,6 +22,7 @@ export class TasksComponent implements OnInit {
     tasks: Array<Task> = [];
     taskTypes: Array<TaskType> = [];
     todayDate: Date;
+    volunteers: User[] = [];
 
     constructor() {
     }
@@ -37,7 +42,7 @@ export class TasksComponent implements OnInit {
         this.tasks.push({
             type: 'SHOPPING',
             description: '',
-            realizationDate: this.todayDate,
+            realizationDate: Timestamp.now(),
             status: TaskStatus.ADDED
         } as Task);
     }
@@ -48,5 +53,13 @@ export class TasksComponent implements OnInit {
 
     delete(task: Task) {
         this.tasks.splice(this.tasks.indexOf(task), 1);
+    }
+
+    dateChange(date: MatDatepickerInputEvent<Date>, task: Task) {
+        task.realizationDate = Timestamp.fromDate(date.value);
+    }
+
+    toDate(timestamp: Timestamp) {
+        return (timestamp as Timestamp).toDate();
     }
 }
