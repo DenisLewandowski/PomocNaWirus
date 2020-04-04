@@ -3,7 +3,7 @@
 </mat-toolbar>
 
 <div class="row mx-4 my-4">
-    <mat-card class="col-xl-6 col-sm-11" cdkScrollable>
+    <mat-card class="col-xl-8 col-sm-12" cdkScrollable>
 
         <div class="d-flex justify-content-between align-items-center">
             <span class="ml-3">{{'order.list' | translate}}</span>
@@ -39,5 +39,5 @@
 
     </mat-card>
 
-    <app-order-statistics class="col-xl-6 col-sm-11" [orders]="orders"></app-order-statistics>
+    <app-order-statistics class="col-xl-4 col-sm-12 mt-sm-4 mt-xl-0" [orders]="orders"></app-order-statistics>
 </div>
