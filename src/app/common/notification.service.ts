@@ -47,4 +47,7 @@ export class NotificationService {
         this.snackBar.open(this.fillFormMessage, 'OK', this.config);
     }
 
+    custom(message: string) {
+        this.snackBar.open(message, 'OK', this.config);
+    }
 }

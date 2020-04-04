@@ -46,7 +46,9 @@
     "code": "Team Code",
     "code-description": "This is your team code. Give it to your team members!",
     "member-list": "Member List",
-    "members": "Number of members"
+    "members": "Number of members",
+    "admin-promote": "Give admin rights",
+    "admin-demote": "Remove admin rights"
   },
   "order": {
     "order": "Order",
@@ -63,6 +65,7 @@
     "add-task": "Add Task",
     "task-type": "Task type",
     "task-executor": "Task Executor",
+    "task-unassigned": "Task Unassigned",
     "shopping": "Shopping List",
     "pet-care": "Pet Care",
     "other": "Other",
@@ -76,6 +79,8 @@
     "error": "Ops, something went wrong!",
     "teamCodeCopied": "Team Code Copied to Clipboard!",
     "fillFormBeforeSave": "Fill the form before save!",
-    "areYouSure": "Are you sure?"
+    "areYouSure": "Are you sure?",
+    "user-promoted": "User promoted to admin successfully!",
+    "user-demoted": "Admin demoted to regular user successfully!"
   }
 }

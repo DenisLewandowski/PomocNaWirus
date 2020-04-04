@@ -70,6 +70,10 @@ export class TasksComponent implements OnInit {
     }
 
     toDate(timestamp: Timestamp) {
-        return (timestamp as Timestamp).toDate();
+        if (timestamp) {
+            return timestamp.toDate();
+        } else {
+            return null;
+        }
     }
 }

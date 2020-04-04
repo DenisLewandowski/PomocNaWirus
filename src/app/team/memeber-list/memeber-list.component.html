@@ -16,6 +16,14 @@
                 <p style="font-size: x-small" matLine>Phone: {{member.phone}}</p>
                 <p style="font-size: x-small" matLine>Email: {{member.email}}</p>
 
+                <button *ngIf="member.userType !== 'ADMIN'" mat-icon-button matTooltip="{{'team.admin-promote' | translate}}" class="float-right mb-2"
+                        (click)="promoteUserToAdmin(member)">
+                    <mat-icon class="icon" style="height: 14px; width: 14px" svgIcon="leader" inline></mat-icon>
+                </button>
+                <button *ngIf="member.userType === 'ADMIN' && member.id !== currentUserId" mat-icon-button matTooltip="{{'team.admin-demote' | translate}}" class="float-right"
+                        (click)="demoteAdminToUser(member)">
+                    <mat-icon class="icon" inline>arrow_downward</mat-icon>
+                </button>
                 <button mat-icon-button matTooltip="{{'delete' | translate}}" class="float-right" (click)="delete(member)">
                     <mat-icon class="icon" inline="true">delete</mat-icon>
                 </button>

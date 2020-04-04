@@ -12,14 +12,15 @@
             <mat-expansion-panel *ngFor="let task of tasks" [disabled]="!editMode">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        <mat-icon class="mr-2">{{getTaskType(task.type).iconName}}</mat-icon>
+                        <mat-icon class="mr-2" [ngClass]="editMode ? 'icon' : ''">{{getTaskType(task.type).iconName}}</mat-icon>
                         {{getTaskType(task.type).i18n | translate}}
                     </mat-panel-title>
+                    <mat-panel-description>{{(task.volunteerId === '' ? 'order.task-unassigned' : '') | translate}}</mat-panel-description>
                 </mat-expansion-panel-header>
 
                 <mat-form-field class="w-50">
                     <mat-label>{{'order.task-type' | translate}}</mat-label>
-                    <mat-select (valueChange)="task.type = $event" [disabled]="!editMode">
+                    <mat-select (valueChange)="task.type = $event" [value]="task.type" [disabled]="!editMode">
                         <mat-option *ngFor="let taskType of taskTypes" [value]="taskType.value">{{taskType.i18n | translate}}</mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -45,7 +46,7 @@
                 <div class="mt-2">
                     <mat-form-field class="w-50">
                         <mat-label>{{'order.task-executor' | translate}}</mat-label>
-                        <mat-select (valueChange)="task.volunteerId = $event" [disabled]="!editMode">
+                        <mat-select (valueChange)="task.volunteerId = $event" [value]="task.volunteerId" [disabled]="!editMode">
                             <mat-option *ngFor="let volunteer of volunteers" [value]="volunteer.id">{{volunteer.name | translate}}</mat-option>
                         </mat-select>
                     </mat-form-field>

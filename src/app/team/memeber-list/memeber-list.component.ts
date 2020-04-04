@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {MatDialog} from '@angular/material';
+import {TranslateService} from '@ngx-translate/core';
 import {FirebaseAuthService} from '../../auth/firebase-auth.service';
 import {User} from '../../auth/user.model';
 import {ConfirmDialogComponent} from '../../common/confirm-dialog/confirm-dialog.component';
@@ -16,17 +17,20 @@ import {Order} from '../../tasks/order.model';
 export class MemeberListComponent implements OnInit {
 
     teamId: string;
+    currentUserId: string;
     members: User[] = [];
 
     constructor(private db: AngularFirestore,
                 private auth: FirebaseAuthService,
                 public dialog: MatDialog,
-                private notificationService: NotificationService) {
+                private notificationService: NotificationService,
+                private translate: TranslateService) {
     }
 
     ngOnInit(): void {
         this.auth.user$.subscribe(user => {
             this.teamId = user.teamId;
+            this.currentUserId = user.id;
             this.db.collection('users', ref => ref.where('teamId', '==', this.teamId)).get().subscribe(
                 users => users.forEach(u => this.members.push({...u.data() as User, id: u.id}))
             );
@@ -61,6 +65,25 @@ export class MemeberListComponent implements OnInit {
                     this.members = this.members.filter(m => m.id !== member.id);
                 }).catch(() => this.notificationService.error());
             }
+        });
+    }
+
+    promoteUserToAdmin(member: User) {
+        this.db.collection('/users').doc(member.id).update({
+            userType: 'ADMIN'
+        }).then(() => {
+            this.notificationService.custom(this.translate.instant('messages.user-promoted'));
+            member.userType = 'ADMIN';
+        });
+    }
+
+    demoteAdminToUser(member: User) {
+        console.log(member);
+        this.db.collection('/users').doc(member.id).update({
+            userType: 'USER'
+        }).then(() => {
+            this.notificationService.custom(this.translate.instant('messages.user-demoted'));
+            member.userType = 'USER';
         });
     }
 }
