@@ -1,21 +1,21 @@
 <mat-card cdkScrollable>
 
-    <div class="mt-2">
+    <div class="mt-2 d-flex justify-content-between align-items-center">
         <span class="ml-2">{{'team.member-list' | translate}}</span>
+        <div class="mr-4 d-flex align-items-center" matTooltip="{{'team.members' | translate}}" matTooltipPosition="before">
+            <mat-icon inline class="mr-2">people</mat-icon>
+            {{members.length}}
+        </div>
     </div>
 
     <mat-card-content>
         <mat-list>
             <mat-list-item class="mt-2" *ngFor="let member of members">
-
-                <mat-icon class="icon" matListIcon>emoji_people</mat-icon>
+                <mat-icon class="icon d-flex align-items-center" [svgIcon]="member.userType === 'ADMIN' ? 'leader' : 'person'" matListIcon></mat-icon>
                 <p matLine>{{member.name}}</p>
                 <p style="font-size: x-small" matLine>Phone: {{member.phone}}</p>
                 <p style="font-size: x-small" matLine>Email: {{member.email}}</p>
 
-                <button mat-icon-button matTooltip="{{'view' | translate}}" class="float-right" (click)="view(member)">
-                    <mat-icon class="icon" inline="true">description</mat-icon>
-                </button>
                 <button mat-icon-button matTooltip="{{'delete' | translate}}" class="float-right" (click)="delete(member)">
                     <mat-icon class="icon" inline="true">delete</mat-icon>
                 </button>

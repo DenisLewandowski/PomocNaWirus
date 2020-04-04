@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{'delete' | translate}}</h1>
+<div mat-dialog-content>
+    <p>{{'messages.areYouSure' | translate}}</p>
+</div>
+<div mat-dialog-actions class="float-right">
+    <button mat-button (click)="onCancel()">{{'cancel' | translate}}</button>
+    <button mat-raised-button (click)="onSubmit()" color="primary" [mat-dialog-close]="confirm" cdkfocusinitial>{{'delete' | translate}}</button>
+</div>

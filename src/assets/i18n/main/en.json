@@ -15,6 +15,9 @@
     "team": "Team",
     "settings": "Settings"
   },
+  "settings": {
+    "lang": "Select Language"
+  },
   "auth": {
     "login": "Login",
     "password": "Password",
@@ -42,7 +45,8 @@
     "settings": "Team Settings",
     "code": "Team Code",
     "code-description": "This is your team code. Give it to your team members!",
-    "member-list": "Member List"
+    "member-list": "Member List",
+    "members": "Number of members"
   },
   "order": {
     "order": "Order",
@@ -69,6 +73,8 @@
     "saved": "Saved Successfully!",
     "deleted": "Deleted Successfully!",
     "error": "Ops, something went wrong!",
-    "teamCodeCopied": "Team Code Copied to Clipboard!"
+    "teamCodeCopied": "Team Code Copied to Clipboard!",
+    "fillFormBeforeSave": "Fill the form before save!",
+    "areYouSure": "Are you sure?"
   }
 }

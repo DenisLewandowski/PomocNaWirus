@@ -1,1 +1,36 @@
-<p>general-settings works!</p>
+<mat-toolbar class="d-flex justify-content-between">
+    <span class="ml-3">{{'menu.settings' | translate}}</span>
+</mat-toolbar>
+
+<mat-card class="col-xl-6 col-sm-12 my-4 mx-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <span class="ml-2">{{'menu.settings' | translate}}</span>
+        <div>
+            <button *ngIf="!editMode" mat-button color="primary" (click)="edit()">
+                <mat-icon inline="true">edit</mat-icon>
+                {{'edit' | translate}}
+            </button>
+            <button *ngIf="editMode" mat-button color="primary" (click)="save()">
+                <mat-icon inline="true">save</mat-icon>
+                {{'save' | translate}}
+            </button>
+            <button *ngIf="editMode" mat-button color="primary" (click)="cancel()">
+                <mat-icon inline="true">cancel</mat-icon>
+                {{'cancel' | translate}}
+            </button>
+        </div>
+    </div>
+
+    <mat-card-content>
+        <div class="ml-2 mt-2">
+            <form [formGroup]="form">
+                <mat-form-field>
+                    <mat-label>{{'settings.lang' | translate}}</mat-label>
+                    <mat-select formControlName="lang">
+                        <mat-option *ngFor="let lang of langList" [value]="lang.lang">{{lang.display}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+        </div>
+    </mat-card-content>
+</mat-card>

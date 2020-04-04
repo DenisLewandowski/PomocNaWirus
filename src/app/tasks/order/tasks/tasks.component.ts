@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {TaskStatus} from '../../../common/task-status';
 import {Task} from '../../task.model';
 
 interface TaskType {
@@ -36,7 +37,8 @@ export class TasksComponent implements OnInit {
         this.tasks.push({
             type: 'SHOPPING',
             description: '',
-            realizationDate: this.todayDate
+            realizationDate: this.todayDate,
+            status: TaskStatus.ADDED
         } as Task);
     }
 

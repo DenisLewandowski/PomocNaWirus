@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {FirebaseAuthService} from '../../auth/firebase-auth.service';
-import {NotificationService} from '../../notification.service';
+import {NotificationService} from '../../common/notification.service';
 import {Team} from '../team.model';
 import {TeamService} from '../team.service';
 

@@ -1,5 +1,5 @@
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AngularFireDatabase} from '@angular/fire/database';
@@ -13,7 +13,8 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {AuthModule} from '../auth/auth.module';
 import {FirebaseAuthService} from '../auth/firebase-auth.service';
-import {NotificationService} from '../notification.service';
+import {AppCommonModule} from '../common/app-common.module';
+import {NotificationService} from '../common/notification.service';
 import {TeamSettingsComponent} from './team-settings/team-settings.component';
 import {TeamComponent} from './team.component';
 import {TeamInviteComponent} from './team-invite/team-invite.component';
@@ -33,6 +34,7 @@ import { MemeberListComponent } from './memeber-list/memeber-list.component';
                 deps: [HttpClient]
             }
         }),
+        HttpClientModule,
         MatButtonModule,
         MatIconModule,
         ReactiveFormsModule,
@@ -43,7 +45,8 @@ import { MemeberListComponent } from './memeber-list/memeber-list.component';
         MatToolbarModule,
         MatListModule,
         ScrollingModule,
-        MatTooltipModule
+        MatTooltipModule,
+        AppCommonModule
     ],
     providers: [
         FirebaseAuthService,

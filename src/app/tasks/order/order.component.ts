@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 import {FirebaseAuthService} from '../../auth/firebase-auth.service';
-import {NotificationService} from '../../notification.service';
+import {NotificationService} from '../../common/notification.service';
 import {Order} from '../order.model';
 import {Task} from '../task.model';
 import {TasksComponent} from './tasks/tasks.component';

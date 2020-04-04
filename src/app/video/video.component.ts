@@ -13,6 +13,14 @@ export class VideoComponent implements OnInit {
     constructor(private translate: TranslateService) {
     }
 
+    get width() {
+        return window.innerWidth * 0.7;
+    }
+
+    get height() {
+        return window.innerHeight * 0.7;
+    }
+
     ngOnInit(): void {
         const tag = document.createElement('script');
 

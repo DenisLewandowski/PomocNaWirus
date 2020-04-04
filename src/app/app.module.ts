@@ -1,3 +1,4 @@
+import {CommonModule} from '@angular/common';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
@@ -67,7 +68,8 @@ import {VideoModule} from './video/video.module';
         TeamModule,
         MatCardModule,
         OrderModule,
-        VideoModule
+        VideoModule,
+        CommonModule
     ],
     providers: [
         AngularFirestore

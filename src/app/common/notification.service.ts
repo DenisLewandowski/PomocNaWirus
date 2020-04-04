@@ -17,12 +17,14 @@ export class NotificationService {
     readonly deletedSuccessfullyMessage: string;
     readonly copiedSuccessfullyMessage: string;
     readonly errorMessage: string;
+    readonly fillFormMessage: string;
 
     constructor(private snackBar: MatSnackBar, private translate: TranslateService) {
         this.savedSuccessfullyMessage = this.translate.instant('messages.saved');
         this.deletedSuccessfullyMessage = this.translate.instant('messages.deleted');
         this.copiedSuccessfullyMessage = this.translate.instant('messages.teamCodeCopied');
         this.errorMessage = this.translate.instant('messages.error');
+        this.fillFormMessage = this.translate.instant('fillFormBeforeSave');
     }
 
     savedSuccessfully() {
@@ -39,6 +41,10 @@ export class NotificationService {
 
     error() {
         this.snackBar.open(this.errorMessage, 'OK', this.config);
+    }
+
+    fillFormBeforeSave() {
+        this.snackBar.open(this.fillFormMessage, 'OK', this.config);
     }
 
 }

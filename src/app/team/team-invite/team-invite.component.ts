@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ClipboardService} from 'ngx-clipboard';
 import {FirebaseAuthService} from '../../auth/firebase-auth.service';
-import {NotificationService} from '../../notification.service';
+import {NotificationService} from '../../common/notification.service';
 
 @Component({
     selector: 'app-team-invite',
