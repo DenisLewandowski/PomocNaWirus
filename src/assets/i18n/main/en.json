@@ -62,6 +62,7 @@
     "add": "Add Order",
     "add-task": "Add Task",
     "task-type": "Task type",
+    "task-executor": "Task Executor",
     "shopping": "Shopping List",
     "pet-care": "Pet Care",
     "other": "Other",

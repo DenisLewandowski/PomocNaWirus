@@ -42,6 +42,7 @@ export class TasksComponent implements OnInit {
         this.tasks.push({
             type: 'SHOPPING',
             description: '',
+            volunteerId: '',
             realizationDate: Timestamp.now(),
             status: TaskStatus.ADDED
         } as Task);
@@ -57,6 +58,15 @@ export class TasksComponent implements OnInit {
 
     dateChange(date: MatDatepickerInputEvent<Date>, task: Task) {
         task.realizationDate = Timestamp.fromDate(date.value);
+    }
+
+    beforeSaveModel(): Task[] {
+        this.tasks.forEach(t => {
+            if (t.volunteerId !== '') {
+                t.status = TaskStatus.ASSIGNED;
+            }
+        });
+        return this.tasks;
     }
 
     toDate(timestamp: Timestamp) {

@@ -121,7 +121,7 @@ export class OrderComponent implements OnInit {
             {
                 ...this.form.getRawValue(),
                 teamId: this.teamId,
-                tasks: this.tasksComponent.tasks
+                tasks: this.tasksComponent.beforeSaveModel()
             });
     }
 
@@ -129,7 +129,7 @@ export class OrderComponent implements OnInit {
         console.log(this.orderId);
         return this.db.collection('/orders').doc(this.orderId).update({
             ...this.form.getRawValue(),
-            tasks: this.tasksComponent.tasks
+            tasks: this.tasksComponent.beforeSaveModel()
         });
     }
 }
