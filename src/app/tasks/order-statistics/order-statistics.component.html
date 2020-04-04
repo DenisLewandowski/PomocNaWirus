@@ -1,0 +1,35 @@
+<mat-card>
+    <div class="d-flex justify-content-between align-items-center">
+        <span class="ml-3 mt-1">{{'statistics.title' | translate}}</span>
+    </div>
+
+    <mat-card-content class="mt-4 ml-3">
+        <div class="d-flex align-items-center">
+            <span class="label">{{'statistics.orders' | translate}}:</span>
+            <span class="ml-3 stat-num gray-color">{{orders.length}}</span>
+            <mat-icon class="gray-color ml-1">emoji_people</mat-icon>
+        </div>
+        <div class="mt-2 d-flex align-items-center">
+            <span class="label">{{'statistics.tasks' | translate}}:</span>
+            <span class="ml-3 stat-num gray-color">{{getTaskCount()}}</span>
+            <mat-icon class="gray-color ml-1">work</mat-icon>
+        </div>
+        <div class="mt-2 d-flex align-items-center">
+            <span class="label">{{'statistics.done-tasks' | translate}}:</span>
+            <span class="ml-3 stat-num done">{{getDoneTaskCount()}}</span>
+            <mat-icon class="done ml-1">done</mat-icon>
+        </div>
+        <div class="mt-2 d-flex align-items-center">
+            <span class="label">{{'statistics.assigned-tasks' | translate}}:</span>
+            <span class="ml-3 stat-num assigned">{{getAssignedTaskCount()}}</span>
+            <mat-icon class="assigned ml-1">assignment</mat-icon>
+        </div>
+        <div class="mt-2 d-flex align-items-center">
+            <span class="label">{{'statistics.unassigned-tasks' | translate}}:</span>
+            <span class="ml-3 stat-num unassigned">{{getUnassignedTaskCount()}}</span>
+            <mat-icon class="unassigned ml-1">remove_circle</mat-icon>
+        </div>
+
+
+    </mat-card-content>
+</mat-card>

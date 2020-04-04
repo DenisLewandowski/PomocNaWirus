@@ -13,9 +13,10 @@ import {FirebaseAuthService} from '../auth/firebase-auth.service';
 import {OrderListComponent} from './order-list/order-list.component';
 import {OrderComponent} from './order/order.component';
 import {TasksComponent} from './order/tasks/tasks.component';
+import { OrderStatisticsComponent } from './order-statistics/order-statistics.component';
 
 @NgModule({
-    declarations: [OrderListComponent, OrderComponent, TasksComponent, TasksComponent],
+    declarations: [OrderListComponent, OrderComponent, TasksComponent, TasksComponent, OrderStatisticsComponent],
     imports: [
         CommonModule,
         TranslateModule,

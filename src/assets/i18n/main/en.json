@@ -73,6 +73,14 @@
     "description": "Task Description",
     "description-placeholder": "Describe the task here..."
   },
+  "statistics": {
+    "title": "Statistics",
+    "orders": "All Orders",
+    "tasks": "All Tasks",
+    "done-tasks": "Done Tasks",
+    "unassigned-tasks": "Unassigned Tasks",
+    "assigned-tasks": "Assigned Tasks"
+  },
   "messages": {
     "saved": "Saved Successfully!",
     "deleted": "Deleted Successfully!",
