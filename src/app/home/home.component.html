@@ -1,4 +1,49 @@
 <h1 class="float-right app-name slide">{{'app-name' | translate}}</h1>
-<div class="w-100 h-75 d-flex align-items-center justify-content-center">
-    <app-video class="slide"></app-video>
+<div class="w-100 h-75 d-flex align-items-start justify-content-center text-center" style="margin-top: 10em;">
+  <!-- <app-video class="slide"></app-video> -->
+  <div class="safety">
+    <h4 [innerHTML]="'safety.header' | translate"></h4>
+    <div class="row rulesFirst">
+      <div class="col s12 m6 l4">
+        <img class="ruleImg" src="assets/img/safetyrule1.svg">
+        <h6 class="rule" [innerHTML]="'safety.rule1' | translate"></h6>
+      </div>
+      <div class="col s12 m6 l4">
+        <img class="ruleImg" src="assets/img/safetyrule2.svg">
+        <h6 class="rule" [innerHTML]="'safety.rule2' | translate"></h6>
+      </div>
+      <div class="col s12 m6 l4">
+        <img class="ruleImg" src="assets/img/safetyrule3.svg">
+        <h6 class="rule" [innerHTML]="'safety.rule3' | translate"></h6>
+      </div>
+    </div>
+    <div class="row rules">
+      <div class="col s12 m6 l4">
+        <img class="ruleImg" src="assets/img/safetyrule4.svg">
+        <h6 class="rule" [innerHTML]="'safety.rule4' | translate"></h6>
+      </div>
+      <div class="col s12 m6 l4">
+        <img class="ruleImg" src="assets/img/safetyrule5.svg">
+        <h6 class="rule" [innerHTML]="'safety.rule5' | translate"></h6>
+      </div>
+      <div class="col s12 m6 l4">
+        <img class="ruleImg" src="assets/img/safetyrule6.svg">
+        <h6 class="rule" [innerHTML]="'safety.rule6' | translate"></h6>
+      </div>
+    </div>
+    <div class="row rulesLast">
+      <div class="col s12 m6 l4">
+        <img class="ruleImg" src="assets/img/safetyrule7.svg">
+        <h6 class="rule" [innerHTML]="'safety.rule7' | translate"></h6>
+      </div>
+      <div class="col s12 m6 l4">
+        <img class="ruleImg" src="assets/img/safetyrule8.svg">
+        <h6 class="rule" [innerHTML]="'safety.rule8' | translate"></h6>
+      </div>
+      <div class="col s12 m6 l4">
+        <img class="ruleImg" src="assets/img/safetyrule9.svg">
+        <h6 class="rule" [innerHTML]="'safety.rule9' | translate"></h6>
+      </div>
+    </div>
+  </div>
 </div>

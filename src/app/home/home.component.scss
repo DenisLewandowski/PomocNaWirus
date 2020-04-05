@@ -18,11 +18,42 @@
     transform: translateY(-12vh);
     opacity: .1;
   }
+
   80% {
     opacity: 1;
     transform: translateY(-1vh);
   }
+
   100% {
     transform: translateY(0);
   }
+}
+
+.rules {
+  margin-top: 1vh;
+  margin-left: 10vh;
+  margin-right: 10vh;
+}
+
+.rulesFirst {
+  margin-top: 3vh;
+  margin-left: 10vh;
+  margin-right: 10vh;
+}
+
+.rulesLast {
+  margin-top: 1vh;
+  margin-bottom: 8vh;
+  margin-left: 10vh;
+  margin-right: 10vh;
+}
+
+.ruleImg {
+  width: auto;
+  height: 7vh;
+  object-fit: cover;
+}
+
+.rule {
+  margin-top: 1vh;
 }

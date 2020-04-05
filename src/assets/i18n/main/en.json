@@ -15,6 +15,18 @@
     "team": "Team",
     "settings": "Settings"
   },
+  "safety": {
+    "header": "Your safety is the most important to prevent spreading of the coronavirus!<br>Please follow the rules below:",
+    "rule1": "Do not go outside without explicit necessity!\n#StayAtHome",
+    "rule2": "Try to protect yourself as much as possible. Wear gloves and a mask when you leave the house.",
+    "rule3": "Regularly wash your hands with soap and water or clean them with an alcohol-based hand rub.",
+    "rule4": "Avoid touching eyes, nose and mouth. Hands touch many surfaces and can pick up viruses.",
+    "rule5": "Cover your mouth and nose with your bent elbow or tissue when you cough or sneeze.",
+    "rule6": "Maintain at least 1 metre distance between yourself and anyone who is coughing or sneezing, as well as your interlocutors.",
+    "rule7": "Touch surfaces including desks, tables, door handles, light switches, handrails must be wiped regularly with water and detergent or a disinfectant.",
+    "rule8": "If you have a fever, cough and difficulty breathing, seek medical attention and call in advance. Follow the directions of your local health authority.",
+    "rule9": "Keep up to date on the latest information about COVID-19."
+  },
   "settings": {
     "lang": "Select Language"
   },
